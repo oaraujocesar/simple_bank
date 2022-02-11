@@ -20,6 +20,6 @@ sqlc:
 	sqlc generate
 
 server:
-	go run main.go
+	air
 
 .PHONY: createdb createdb dropdb migrateup migratedown sqlc test server
