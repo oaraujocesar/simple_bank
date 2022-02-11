@@ -11,6 +11,18 @@ type Server struct {
 	router *gin.Engine
 }
 
+// Creates a new HTTP server and setup routing.
+func NewServer(store *db.Store) *Server {
+	server := &Server{store: store}
+	router := gin.Default()
+
+	router.POST("/accounts", server.CreateAccount)
+
+	server.router = router
+
+	return server
+}
+
 // Runs the HTTP server on a specific address.
 func (server *Server) Start(address string) error {
 	return server.router.Run(address)
