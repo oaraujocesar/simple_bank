@@ -19,4 +19,7 @@ test:
 sqlc:
 	sqlc generate
 
-.PHONY: createdb createdb dropdb migrateup migratedown sqlc test
+server:
+	go run main.go
+
+.PHONY: createdb createdb dropdb migrateup migratedown sqlc test server
